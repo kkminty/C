@@ -25,8 +25,7 @@ int main()
         }
     }
     printf("%d,%d,%d\n",nb,nt,nl);
-   
-   
+     
     system("pause");
 } 
 
