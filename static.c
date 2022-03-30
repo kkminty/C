@@ -187,8 +187,31 @@ void main(){
 int main(){
     int a=18,b=1,c=4;
     int *arr[3]={&a,&b,&c};// 定义一个指针数组
-    int **parr=arr;
+    int **parr=arr; //parr 是指向数组 arr 的指针，确切地说是指向 arr 第 0 个元素的指针
     printf("%d,%d,%d\n",*arr[0],*arr[1],*arr[2]);
     printf("%d,%d,%d\n",**(parr+0),**(parr+1),**(parr+2));
 
+}
+/************************************************/
+/*玩转指针和二级指针*/
+/************************************************/
+int main(){
+    char *lines[5] = {
+        "COSC1283/1284",
+        "Programming",
+        "Techniques",
+        "is",
+        "great fun"
+    };
+    char *str1 = lines[1];
+    char *str2 = *(lines + 3);
+    char c1 = *(*(lines + 4) + 6);
+    char c2 = (*lines + 5)[5];
+    char c3 = *lines[0] + 2;
+    printf("str1 = %s\n", str1); // 数组中1，programming
+    printf("str2 = %s\n", str2); // lines + 3 为数组中第 3 个元素的地址
+    printf("  c1 = %c\n", c1); //
+    printf("  c2 = %c\n", c2); //
+    printf("  c3 = %c\n", c3); //
+    return 0;
 }
