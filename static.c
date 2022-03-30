@@ -128,3 +128,67 @@ void main(){
         printf("%d",*p);
     }
 }
+
+/************************************************/
+/*定义一个指针变量和字符串*/
+/************************************************/
+#include <stdio.h>
+int main(){
+    char str[20] = "c.biancheng.net";
+   
+    char *s1 = str;
+    char *s2 = str+2;
+   
+    char c1 = str[4];
+    char c2 = *str;
+    char c3 = *(str+4);
+    char c4 = *str+2;
+    char c5 = (str+1)[5];
+   
+    int num1 = *str+2;
+    long num2 = (long)str;
+    long num3 = (long)(str+2);
+    printf("  s1 = %s\n", s1);  //c.biancheng.net
+    printf("  s2 = %s\n", s2);  //biancheng.net
+    printf("  c1 = %c\n", c1);  //第四个字符的地址 'a'
+    printf("  c2 = %c\n", c2); //'c'
+    printf("  c3 = %c\n", c3); // 'a'
+    printf("  c4 = %c\n", c4); // 'e'='c'+2
+    printf("  c5 = %c\n", c5); // 'c' 表示以地址 str+1 为起点，向后偏移5个字符，等价于str[6
+   
+    printf("num1 = %d\n", num1); //*str+2 == 'c'+2 == 99+2 == 101
+    printf("num2 = %ld\n", num2); //字符串 str 的首地址
+    printf("num3 = %ld\n", num3); //第 2 个元素的地址
+    return 0;
+}
+
+/************************************************/
+/*定义一个指针变量，初始化为NULL*/
+/************************************************/
+void main(){
+    char *str=NULL;
+    int i,n;
+    char *buffer;
+
+    printf("The length of input char:");
+    scanf("%d",&i);
+    buffer = (char*)malloc(i+1); //void* malloc(size_t size);动态分配内存空间10字节,成功返回指向该内存的地址，失败返回NULL
+    if(buffer=NULL) exit(1);//终结程序，0正常退出，1/-1异常退出 判断是否分配成功
+    for(n=0;n<i;n++){
+        buffer[n]=rand()%26+'a';
+    }
+    buffer[i]='\0';
+    printf("char is %s\n",buffer);
+    free(buffer);
+}
+/************************************************/
+/*定义一个数组存放的都是指针变量*/
+/************************************************/
+int main(){
+    int a=18,b=1,c=4;
+    int *arr[3]={&a,&b,&c};// 定义一个指针数组
+    int **parr=arr;
+    printf("%d,%d,%d\n",*arr[0],*arr[1],*arr[2]);
+    printf("%d,%d,%d\n",**(parr+0),**(parr+1),**(parr+2));
+
+}

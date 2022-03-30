@@ -4,15 +4,14 @@
 #include <conio.h>
 
 void main(){
-    int a = 100,b=999,temp;
-    int *pa = &a,*pb=&b;   
-    printf("a=%d,b=%d",*pa,*pb);
-    temp = *pa;
-    *pa =*pb;
-    *pb = temp;
-
-    printf("a=%d,b=%d",a, b);
-
+    int arr[]={99,12,1,55,102};
+    int *p=arr+4; //int *p=&arr[0]；指向数组第0个元素
+    int len = sizeof(arr)/sizeof(int); //求数组的长度
+    printf("%d\n",len);
+    
+    for(int i=0;i<len;i++){
+        printf("%d\t",*p--);
+    }
     system("pause");
 }
 
