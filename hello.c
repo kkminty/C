@@ -3,15 +3,19 @@
 #include <math.h>
 #include <conio.h>
 
+int max(int a, int b){
+    return a>b ? a : b;
+}
+
 void main(){
-    int arr[]={99,12,1,55,102};
-    int *p=arr+4; //int *p=&arr[0]；指向数组第0个元素
-    int len = sizeof(arr)/sizeof(int); //求数组的长度
-    printf("%d\n",len);
+    int x, y, maxval;
+    //定义函数指针
+    int (*pmax)(int, int) = max;  //也可以写作int (*pmax)(int a, int b)
+    printf("Input two numbers:");
+    scanf("%d %d", &x, &y);
+    maxval = (*pmax)(x, y);
+    printf("Max value: %d\n", maxval);
     
-    for(int i=0;i<len;i++){
-        printf("%d\t",*p--);
-    }
     system("pause");
 }
 

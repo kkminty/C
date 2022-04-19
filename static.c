@@ -230,3 +230,22 @@ void main(){
     }
     system("pause");
 }
+/************************************************/
+/*创建一个指针函数并调用指针*/
+/************************************************/
+
+int max(int a, int b){
+    return a>b ? a : b;
+}
+
+void main(){
+    int x, y, maxval;
+    //定义函数指针
+    int (*pmax)(int, int) = max;  //也可以写作int (*pmax)(int a, int b)
+    printf("Input two numbers:");
+    scanf("%d %d", &x, &y);
+    maxval = (*pmax)(x, y);
+    printf("Max value: %d\n", maxval);
+    
+    system("pause");
+}
